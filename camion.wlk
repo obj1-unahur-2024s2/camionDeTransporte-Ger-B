@@ -1,3 +1,5 @@
 object camion {
-
+    method ejemplo() {
+      
+    }
 }
