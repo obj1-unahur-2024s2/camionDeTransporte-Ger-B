@@ -1,0 +1,30 @@
+import cosas2.*
+import camion2.*
+describe "Test para la parte 2 del enunciado" {
+    method testConfig(){
+        camion.cargarCosa(knightRider)
+        camion.cargarCosa(bumblebee)
+        paqueteDeLadrillos.cantLadrillos(200)
+        camion.cargarCosa(paqueteDeLadrillos)
+        camion.cargarCosa(bateriaAntiAerea)
+        camion.cargarCosa(residuosRadioactivos)
+        arenaAGranel.peso(200)
+        camion.cargarCosa(arenaAGranel)
+        contenedorPortuario.cargarCosa(knightRider)
+        contenedorPortuario.cargarCosa(residuosRadioactivos)
+        camion.cargarCosa(contenedorPortuario)
+        embalajeDeSeguridad.objetoQueEnvuelve(knightRider)
+        camion.cargarCosa(embalajeDeSeguridad)
+    }
+  test "Test para total de bultos" {
+    self.testConfig()
+    assert.equals(14, camion.totalDeBultos())
+  }
+  test "Consecuencias de la carga" {
+    self.testConfig()
+    assert.notThat(bumblebee.transformadoEnAuto())
+    assert.equals(424, paqueteDeLadrillos.peso())
+    assert.equals(190, arenaAGranel.peso())
+    assert.that(bateriaAntiAerea.estaCargada())
+  }
+}
