@@ -3,6 +3,7 @@ import cosas.*
 
 describe "Grupo de test para camion" {
   test "Test pedido por el enunciado" {
+    camion.cargarCosa(knightRider)
     camion.cargarCosa(bumblebee)
     arenaAGranel.peso(150)
     camion.cargarCosa(arenaAGranel)
@@ -10,7 +11,15 @@ describe "Grupo de test para camion" {
     paqueteDeLadrillos.cantLadrillos(80)
     embalajeDeSeguridad.objetoQueEnvuelve(paqueteDeLadrillos)
     camion.cargarCosa(embalajeDeSeguridad)
+    camion.descargarCosa(knightRider)
     assert.equals(2410, camion.pesoTotal())
+    assert.notThat(camion.cargaImpar())
+    assert.that(camion.hayCargaDePeso(800))
+    assert.equals(bateriaAntiAerea, camion.cargaConPeligrosidad(100))
+    assert.equals([bateriaAntiAerea], camion.cargaConPeligrosidadMayorA(50))
+    assert.notThat(camion.excedidoDePeso())
+    assert.notThat(camion.puedeCircular())
+    assert.equals([bateriaAntiAerea], camion.cargaQueSuperaLaPeligrosidadDe(bumblebee))
   }
   test "Puede cargar cosas" {
     camion.cargarCosa(knightRider)
