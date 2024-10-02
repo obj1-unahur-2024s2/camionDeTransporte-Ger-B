@@ -16,7 +16,7 @@ describe "Grupo de test para cosas" {
     contenedorPortuario.cargarCosas(bateriaAntiAerea)
     bumblebee.transformadoEnAuto(true)
     contenedorPortuario.cargarCosas(bumblebee)
-    assert.equals(1100, contenedorPortuario.peso())
+    assert.equals(1200, contenedorPortuario.peso())
     assert.equals(130, contenedorPortuario.peligrosidad())
   }
   test "Embalaje de seguridad" {
