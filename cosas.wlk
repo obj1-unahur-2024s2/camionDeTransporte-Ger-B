@@ -3,9 +3,9 @@ object knightRider {
     method peligrosidad() = 10
 }
 object bumblebee {
-    var property transformado = false
+    var property transformadoEnAuto = false
     method peso() = 800
-    method peligrosidad() = if (transformado) 30 else 15
+    method peligrosidad() = if (transformadoEnAuto) 30 else 15
 }
 object paqueteDeLadrillos {
     var cantLadrillos = 1
@@ -46,5 +46,6 @@ object residuosRadioactivos {
 }
 object embalajeDeSeguridad {
     var property objetoQueEnvuelve = null
+    method peso() = objetoQueEnvuelve.peso()
     method peligrosidad() = (objetoQueEnvuelve.peligrosidad())*0.5
 }
